@@ -1,5 +1,28 @@
 class Building():
-    def __init__(self):
+    def __init__(self,t:int,b:int,n:int):
+        self.bottom = b
+        self.property = []
+        for i in range (n):
+            self.property.append(Elevator(b,t))
+
+    def run_elevator(self,n:int,f:int):
+        if n <= len(self.property):
+            selected_Lift = self.property[0:n]
+            for i in selected_Lift:
+                i.go_to_floor(f)
+        else:
+            print("Incorrect Number of Floors Entered")
+            print()
+
+    def fire_alarm(self):
+        for i in self.property:
+            i.go_to_floor(self.bottom)
+
+    def printFloor(self):
+        for i in self.property:
+            i.printInfo()
+
+
 
 class Elevator():
     def __init__(self,b:int,t:int):
@@ -28,11 +51,7 @@ class Elevator():
     def go_to_floor(self,f:int):
         if f >= self.bottom and f <= self.top:
             self.current_floor = f
-            print(f"Elevator has arrived at {self.current_floor}")
-            print()
-        else:
-            print("Floor Doesn't Exist")
-            print()
+
 
     def printInfo(self):
         print(f"Current Floor: {self.current_floor}\n"
@@ -54,4 +73,12 @@ Lift.printInfo()
 #Task 2
 print("Task#2")
 print()
+Building = Building(6,0,7)
+Building.run_elevator(5,9)
+Building.printFloor()
+Building.run_elevator(6,2)
+Building.printFloor()
 
+#Task 3
+Building.fire_alarm()
+Building.printFloor()
