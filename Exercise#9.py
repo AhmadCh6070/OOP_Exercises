@@ -75,7 +75,7 @@ for i in range(1,11):
 
 
 TravelMax = 0
-while TravelMax <10_000:
+while TravelMax <z 10_000:
     for i in Racers:
         i.accelerate(random.randint(-10,15))
         i.drive(1)
