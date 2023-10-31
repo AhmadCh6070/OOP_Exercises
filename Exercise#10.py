@@ -110,7 +110,7 @@ class Car():
 
 
     def race_finished(self):
-        if self.distance_travelled > 500:
+        if self.distance_travelled > 8_000:
             return True
 
     def drive(self,h:float):
@@ -138,17 +138,18 @@ while True:
         racer.hour_passes()
         if racer.race_finished():
             break
-    print(hour)
     hour += 1
     if hour%10 == 0:
         for details in Grand_Demolition_Derby:
             details.printStatus()
     if racer.race_finished():
         Winner = racer
+        print("--"*28)
+        print("The Race Has Ennded!! Here are the Details of Each Racer:")
         for details in Grand_Demolition_Derby:
             details.printStatus()
         break
-print(f"Winner is {Winner.registration}!! He travelled {Winner.distance_travelled}Km in just {hour} Hours!")
-
+print(f"The Winner is {Winner.registration}!! He travelled {Winner.distance_travelled}Km in just {hour} Hours!")
+print("--"*28)
 
 
