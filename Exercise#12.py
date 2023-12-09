@@ -4,7 +4,9 @@ import requests
 if __name__ == "__main__":
     url = 'https://api.chucknorris.io/jokes/random'
     response = requests.get(url)
-    data= response.json()
+    data = response.json()
     joke = data['value']
-    print(joke)
+    print("Task#1")
+    print(f"The Joke Is:\n{joke}")
+
 
